@@ -134,6 +134,7 @@ function removeGroup() {
             }
             localStorage.setItem("groups", JSON.stringify(list));
             $("#students-div").hide();
+			group = undefined;
             retrieveGroups();
         }
     }else{
@@ -194,4 +195,23 @@ function shuffleArray(array) {
         array[i] = array[j];
         array[j] = temp;
     }
+}
+
+/* Download the groups data to a file */
+function downloadGroups() {
+	download("data.json", localStorage.getItem("groups"));
+}
+
+/* Download text to a file */
+function download(filename, text) {
+	var element = document.createElement('a');
+	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	element.setAttribute('download', filename);
+
+	element.style.display = 'none';
+	document.body.appendChild(element);
+
+	element.click();
+
+	document.body.removeChild(element);
 }
