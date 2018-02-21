@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Name Picker</title>
+        <link rel="icon" type="img/png" href="https://i.imgur.com/Wlthnqc.png">
+        <link rel='stylesheet' type='text/css' href='styles/styling.css' />
+    </head>
+    
+    <body>
+        <h1>Name Picker</h1>
+        <div class="selection">
+            <select name="groups" id="list" onchange="selectGroup();">
+                <option value="" disabled selected>Select class</option>
+            </select>
+            <div style="display: inline-block">
+                <img src="styles/plus.png" onclick="toggleAddMenu();">
+                <img id="minus" src="styles/minus.png" onclick="removeGroup();">
+            </div>
+        </div>
+        
+        <div class="add" id="add">
+            <input id="class-name" type="text" placeholder="Class name">
+            <br>
+            <textarea id="student-list" placeholder="Students (enter each name on new line)" style="height: 300px;"></textarea>
+            <br>
+            <button onclick="addClass();">Add class</button>
+        </div>
+        
+        <div class="students-container" id="students-div">
+            <button onclick="nextStudent();" style="margin-left: 0px;margin-bottom: 10px;">Next</button>
+            <br>
+            <div class="students" id="students"></div>
+            <br>
+            <button onclick="reshuffle();" style="margin-top: 10px;">Shuffle</button>
+        </div>
+    </body>
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+</html>
